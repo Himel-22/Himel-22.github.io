@@ -430,15 +430,33 @@ body::before{
         </p>
 
         <div class="buttons">
-            <button class="btn yes">YES ❤️</button>
-            <button class="btn no">Need Some Time</button>
-        </div>
-    </div>
-</section>
-
-<div class="popup" id="popup">\n    <div class="popup-content">\n        <span class="close" onclick="closePopup()">&times;</span>\n        <img id="popup-img" src="">\n\n        <div class="popup-text">\n            <h3 id="popup-title"></h3>\n            <p id="popup-desc"></p>\n        </div>\n    </div>\n</div>\n\n<script>\nfunction openPopup(image,title,desc){\n    document.getElementById('popup').style.display='flex';\n    document.getElementById('popup-img').src=image;\n    document.getElementById('popup-title').innerText=title;\n    document.getElementById('popup-desc').innerText=desc;\n}\n\nfunction closePopup(){\n    document.getElementById('popup').style.display='none';\n}\n\nwindow.onclick=function(e){\n    const popup=document.getElementById('popup');\n    if(e.target===popup){\n        popup.style.display='none';\n    }\n}\n</script>\n\n<div class="footer">
-    Made with love ❤️
+  <button class="btn yes" onclick="showResponse('yes')">YES ❤️</button>
+  <button class="btn no" onclick="showResponse('no')">Need Some Time</button>
 </div>
+<p id="response-text" style="margin-top:30px;font-size:1.2rem;color:#ffd6e7;display:none;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8;"></p>
+
+<script>
+  function showResponse(type) {
+    const el = document.getElementById('response-text');
+    if (type === 'yes') {
+      el.innerHTML = "You just made me the happiest person in the world ❤️<br>Thank you for saying yes. I promise to love you, respect you, and stay by your side through everything.";
+    } else {
+      el.innerHTML = "Take all the time you need 💕<br>I'm not going anywhere. Your feelings matter more to me than any answer. Whenever you're ready, I'll be right here.";
+    }
+    el.style.display = 'block';
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
